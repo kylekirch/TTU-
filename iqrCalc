@@ -1,0 +1,12 @@
+                              #Calculate Interquartile Range of an array 
+                              #{Xarray: Data for calc., length: length of Xarray, fl: array index for floor of the current quartile,
+                               qs: final result of interquartile ranges, type list}
+length = len(Xarray)  #Find length of Xarray
+fl = 0  #Initialize floor at Xarray index 0, Q1 will always begin at index 0
+prev = 0 #This will be the first value of Q1, Q1 typically begins at int value 0
+qs = []
+for i in range(1, 5): #This range is for the calculaton of quartile(i/4) ranges: (1/4,2/4,3/4,4/4)
+    qs.append(str('Q' + str(i) + ':' + str(prev) + '-' + str(tempArr[int(fl):int((length*(i/4)))].max()))) #Puts together the string ('QX: [X,X]') and appends to qs
+    prev = tempArr[int(fl):int(length*(i/4))].max()'  #Stores the cieling value of the prev quartile to become the floor value of the next
+    fl = int(length*(1/4))  #Stores the cieling of the previous Xarray indexing to become the floor index of the next
+    
